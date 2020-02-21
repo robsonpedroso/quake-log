@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\QuakeLog.Domain\QuakeLog.Domain.csproj" />
+    <ProjectReference Include="..\QuakeLog.Infra\QuakeLog.Infra.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\QuakeLog.Application\QuakeLog.Application.csproj" />
+    <ProjectReference Include="..\QuakeLog.Domain\QuakeLog.Domain.csproj" />
+    <ProjectReference Include="..\QuakeLog.Infra\QuakeLog.Infra.csproj" />
+    <ProjectReference Include="..\QuakeLog.Tools.WebApi\Tools.WebApi.csproj" />
+  </ItemGroup>
+
+</Project>
