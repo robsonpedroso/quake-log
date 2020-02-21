@@ -118,6 +118,38 @@ Se a chave `BasePath` não for configurada, a aplicação pega o diretório corrente
 APENAS para facilitar o teste da aplicação, incluí o log dentro da pasta `assets` no diretório da API e não preenchi a chave `BasePath`.
 Com isso basta executar a aplicação para começar os testes.
 
+## Gerar imagem em Docker
+
+Criei o `Dockerfile` para facilitar a criação da imagem para subida em container docker
+
+## Subir numa maquina virtual
+
+Criei o arquivo Vagrantfile para facilitar a subida da maquina virtual, segue o passo a passo que é executado.
+
+### Prerequisitos
+
+* Vagrant
+* Virtual Box
+
+### Executando o Vagrant
+
+Antes de mais nada é preciso instalar o plugin abaixo pois o Vagrant vai precisar compartilhar pastas com a maquina local para ler os arquivos do projeto
+
+`vagrant plugin install vagrant-vbguest`
+
+Subindo a maquina virtual:
+
+`vagrant up`
+
+Segue o passo a passo dessa execução:
+
+- Subir a maquina virutal com o `Ubuntu 19` rodando
+- Instalar o `Docker`
+- Gerar a imagem do docker apontando para o arquivo `Dockerfile`
+- Gerar um container expondo a porta `80`
+
+
+
 ## Execução dos Endpoints
 
 ```

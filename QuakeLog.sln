@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tools.WebApi", "src\QuakeLo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_docs", "_docs", "{FD227CC4-4AA9-4DA8-ACC8-FFCE9D8320FD}"
 	ProjectSection(SolutionItems) = preProject
+		Dockerfile = Dockerfile
 		README.md = README.md
+		Vagrantfile = Vagrantfile
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{343CBA61-F773-45EA-BD57-05C90058E7BB}"
