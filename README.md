@@ -148,8 +148,6 @@ Segue o passo a passo dessa execução:
 - Gerar a imagem do docker apontando para o arquivo `Dockerfile`
 - Gerar um container expondo a porta `80`
 
-
-
 ## Execução dos Endpoints
 
 ```
