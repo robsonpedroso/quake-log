@@ -35,7 +35,7 @@ Após a execução do pre requisitos, segue um passo a passo de como rodar localmen
 Clonar o repositório
 
 ```
-git clone git@github.com:robsonpedroso/xxx.git
+git clone git@github.com:robsonpedroso/quake-log.git
 ```
 
 Abra a solução com o Visual Studio e compile.
