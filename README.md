@@ -26,7 +26,7 @@ Para ler o log e fazer o parse para o meu DTO, optei pelo Regex (sinceramente nã
 
 O que você precisa para baixar, rodar e disponibilizar.
 
-* Visual Studio com o dotnet core 2.2 instalado
+* Dotnet core 3.1 instalado
 
 ### Instalação
 
@@ -39,7 +39,7 @@ git clone git@github.com:robsonpedroso/xxx.git
 ```
 
 Abra a solução com o Visual Studio e compile.
- - Pode ser feito pelo bash, terminal ou cmd através do comando `dotnet build`
+- Pode ser feito pelo bash, terminal ou cmd através do comando `dotnet build`
 
 Sete o Projeto default como a API e execute (F5).
 
@@ -118,13 +118,7 @@ Se a chave `BasePath` não for configurada, a aplicação pega o diretório corrente
 APENAS para facilitar o teste da aplicação, incluí o log dentro da pasta `assets` no diretório da API e não preenchi a chave `BasePath`.
 Com isso basta executar a aplicação para começar os testes.
 
-## Execução das tarefas
-
-### Task 1
-
-* Gerar o parser do arquivo log, gerando um retorno mais amigavel
-* world não é um player e não deve aparecer na lista de players e nem no dicionário de kills.
-* total_kills são os kills dos games, isso inclui mortes do world
+## Execução dos Endpoints
 
 ```
 GET /api/v1/games/task-one
@@ -197,13 +191,7 @@ Exemplo de retorno:
 }
 ```
 
-### Task 2
-
-* Após construir o parser construa um script que imprima um relatório de cada jogo (simplemente imprimindo o hash) e um ranking geral de kills por jogador.
-
-Essa tarefa sinceramente não entendi se era pra fazer uma página apresentando essas informações (em angular por exemplo) ou apenas um json organizado.
-
-Se for o json organizado, o resultado pode ser obtido atráves dos seguintes endpoints:
+### GET /api/v1/games/all
 
 ```
 GET /api/v1/games/all
@@ -319,6 +307,8 @@ Exemplo de retorno:
 ```
 
 
+### GET /api/v1/games/{codigo-da-partida:inteiro}
+
 ```
 GET /api/v1/games/{codigo-da-partida:inteiro}
 ```
@@ -326,37 +316,6 @@ GET /api/v1/games/{codigo-da-partida:inteiro}
 Nesse endpoint é retornado apenas a partida informada, já excluso o `world` dos kills e players, mas mantendo a soma no total e no agrupamento de motivos de mortes, se por armas ou outro - `kills_means`
 O retorno é o mesmo padrão do json do entpoint `/api/v1/games/all` informado acima.
 
-```
-GET /api/v1/games/task-one
-```
-
-Nesse endpoint é retornado todos os registros já excluso o `world` dos kills e players, mas mantendo a soma no total e no agrupamento de motivos de mortes, se por armas ou outro - `kills_means`
-O retorno é o mesmo padrão do json do entpoint `/api/v1/games/all` informado acima.
-
-### Task 3
-
-* Construir uma API com qualquer Linguagem que busque o resultado do Game por ID
-
-```
-GET /api/v1/games/{codigo-da-partida:inteiro}
-```
-
-Exemplo da chamada: 
-
-```
-GET /api/v1/games/14
-```
-
-Nesse endpoint é retornado apenas a partida informada, já excluso o `world` dos kills e players, mas mantendo a soma no total e no agrupamento de motivos de mortes, se por armas ou outro - `kills_means`
-O retorno é o mesmo padrão do json do entpoint `/api/v1/games/all` informado acima.
-
-### Plus
-
-* Gerar um relatório de mortes agrupando pelo motivo da morte, por partida.
-
-Esse item fez mais sentido dentro de cada partida, por isso esta em todos os retornos dos endpoints informados anteriormente.
-A propriedado do json que se refere a esse item é a `kills_means`.
-Também achei melhor incluir a informação da descrição do Enum que informa o motivo da morte para facilitar o entendimento e a inclusão da informação em alguma página para melhor visualização.
 
 ## Execução dos testes
 
