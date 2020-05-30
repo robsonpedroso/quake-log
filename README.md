@@ -2,44 +2,44 @@
 
 Projeto para leitura de arquivo de log do jogo Quake
 
-## IntroduÁ„o
+## Introdu√ß√£o
 
-Essas instruÁıes fornecer„o uma cÛpia do projeto em execuÁ„o na sua m·quina local para fins de desenvolvimento e teste.
+Essas instru√ß√µes fornecer√£o uma c√≥pia do projeto em execu√ß√£o na sua m√°quina local para fins de desenvolvimento e teste.
 
-AplicaÁ„o foi baseada na documentaÁ„o [Quake log parser](https://gist.github.com/sergiofillipi/d049634d4b7d0cb01812322de51c6239)
+Aplica√ß√£o foi baseada na documenta√ß√£o [Quake log parser](https://gist.github.com/sergiofillipi/d049634d4b7d0cb01812322de51c6239)
 
 ## Alguns pontos importantes 
 
-Infelizmente, ao meu ponto de vista, o documento n„o esta muito bem especificado, com isso n„o entendi alguns pontos:
+Infelizmente, ao meu ponto de vista, o documento n√£o esta muito bem especificado, com isso n√£o entendi alguns pontos:
 
 1. Se era pra fazer um `service` para gerar um arquivo de parser
-2. O Rank, n„o deixei ser negativo, caso o mesmo seja `0` ele n„o ira subtrair 1 kill do player quando o `world` matar o player
-3. O formato do parser n„o È um formato de json v·lido e nem o de agrupamento do relatÛrio de mortes
-4. Um script que imprima um relatÛrio (???) essa eu sinceramente n„o entendi e fiz atr·ves de API pois achei mais sensato e coerente, se n„o for isso, especifique um pouco melhor para que eu ajuste a API ou um projeto em Angular
-5. Estava informando que era pra ser feito em JAVA, como n„o tenho (muito) conhecimento em JAVA fiz em C# dotnet Core 2.2 pois È minha especialidade.
-6. Vi que o log tem alguns `ClientDisconnect` e posteriormente o usu·rio (em alguns casos) conecta novamente com o mesmo nome, porÈm com outro ID. Achei melhor tratar como novo player, pois seria um erro diferenciar os players pelo nome.
-7. Quando for o proprio jogador que se matou, È pra contabilizar o kill de alguma forma? Atualmente esta contabilizando como positivo, porem pra n„o contabilizar ou contabilizar negativo, basta validar o id do killer com o id do killed
+2. O Rank, n√£o deixei ser negativo, caso o mesmo seja `0` ele n√£o ira subtrair 1 kill do player quando o `world` matar o player
+3. O formato do parser n√£o √© um formato de json v√°lido e nem o de agrupamento do relat√≥rio de mortes
+4. Um script que imprima um relat√≥rio (???) essa eu sinceramente n√£o entendi e fiz atr√°ves de API pois achei mais sensato e coerente, se n√£o for isso, especifique um pouco melhor para que eu ajuste a API ou um projeto em Angular
+5. Estava informando que era pra ser feito em JAVA, como n√£o tenho (muito) conhecimento em JAVA fiz em C# dotnet Core 2.2 pois √© minha especialidade.
+6. Vi que o log tem alguns `ClientDisconnect` e posteriormente o usu√°rio (em alguns casos) conecta novamente com o mesmo nome, por√©m com outro ID. Achei melhor tratar como novo player, pois seria um erro diferenciar os players pelo nome.
+7. Quando for o proprio jogador que se matou, √© pra contabilizar o kill de alguma forma? Atualmente esta contabilizando como positivo, porem pra n√£o contabilizar ou contabilizar negativo, basta validar o id do killer com o id do killed
 
-Para ler o log e fazer o parse para o meu DTO, optei pelo Regex (sinceramente n„o sou muito f„), pois assim fica mais f·cil e legÌvel trabalhar do que fazer split, replace ou substring em cada propriedade para varrer as linhas.
+Para ler o log e fazer o parse para o meu DTO, optei pelo Regex (sinceramente n√£o sou muito f√£), pois assim fica mais f√°cil e leg√≠vel trabalhar do que fazer split, replace ou substring em cada propriedade para varrer as linhas.
 
 ### Prerequisitos
 
-O que vocÍ precisa para baixar, rodar e disponibilizar.
+O que voc√™ precisa para baixar, rodar e disponibilizar.
 
 * Dotnet core 3.1 instalado
 
-### InstalaÁ„o
+### Instala√ß√£o
 
-ApÛs a execuÁ„o do pre requisitos, segue um passo a passo de como rodar localmente.
+Ap√≥s a execu√ß√£o do pre requisitos, segue um passo a passo de como rodar localmente.
 
-Clonar o repositÛrio
+Clonar o reposit√≥rio
 
 ```
 git clone git@github.com:robsonpedroso/quake-log.git
 ```
 
-Abra a soluÁ„o com o Visual Studio e compile.
-- Pode ser feito pelo bash, terminal ou cmd atravÈs do comando `dotnet build`
+Abra a solu√ß√£o com o Visual Studio e compile.
+- Pode ser feito pelo bash, terminal ou cmd atrav√©s do comando `dotnet build`
 
 Sete o Projeto default como a API e execute (F5).
 
@@ -49,7 +49,7 @@ Chame a URL abaixo pelo navegador para verificar se esta ok.
 GET /api/v1/ping
 ```
 
-Se ele retornar ok (conforme exemplo abaixo), informa que n„o ouve erro na aplicaÁ„o.
+Se ele retornar ok (conforme exemplo abaixo), informa que n√£o ouve erro na aplica√ß√£o.
 
 ```
 {
@@ -59,27 +59,27 @@ Se ele retornar ok (conforme exemplo abaixo), informa que n„o ouve erro na aplic
 }
 ```
 
-### Estrutura de pastas de soluÁ„o
+### Estrutura de pastas de solu√ß√£o
 
-1. `_docs` - Contem o arquivo Readme.md e caso necess·rio outras documentaÁıes para suporte a execuÁ„o e manutenÁ„o da aplicaÁ„o.
+1. `_docs` - Contem o arquivo Readme.md e caso necess√°rio outras documenta√ß√µes para suporte a execu√ß√£o e manuten√ß√£o da aplica√ß√£o.
 2. `api` - Projeto da API
-3. `core` - Estrutura padr„o do DDD contendo os projetos `Application`, `Domain` e `Infra`
-4. `tools` - Ferramentas para ajudar no desenvolvimento, no caso foi usado algumas extensions para facilitar a implementaÁ„o da API e dos retornos.
+3. `core` - Estrutura padr√£o do DDD contendo os projetos `Application`, `Domain` e `Infra`
+4. `tools` - Ferramentas para ajudar no desenvolvimento, no caso foi usado algumas extensions para facilitar a implementa√ß√£o da API e dos retornos.
 5. `tests` - Projeto de testes utilizando o [Moq4](https://github.com/moq/moq4)
 
-### Padr„o de Tecnologia utilizado
+### Padr√£o de Tecnologia utilizado
 
-Na empresa onde trabalho atualmente utilizamos esse padr„o do DDD mais simplificado para trabalhar com os projetos.
+Na empresa onde trabalho atualmente utilizamos esse padr√£o do DDD mais simplificado para trabalhar com os projetos.
 
-Os contratos n„o s„o utilizados no projeto de `Application` devido ser 1 por 1, caso haja algum caso que seja necess·rio fazer uma diferenciaÁ„o de aplicaÁ„o, ai sim criamos a interface para essa diferenciaÁ„o, sinceramente isso nunca aconteceu nos nosso projetos por esse motivo fazemos dessa forma
+Os contratos n√£o s√£o utilizados no projeto de `Application` devido ser 1 por 1, caso haja algum caso que seja necess√°rio fazer uma diferencia√ß√£o de aplica√ß√£o, ai sim criamos a interface para essa diferencia√ß√£o, sinceramente isso nunca aconteceu nos nosso projetos por esse motivo fazemos dessa forma
 
-J· no `Domain` e no `Infra` utilizamos normalmente os contratos (interfaces), pois sabemos que muitas das vezes precisamos modificar os serviÁos, seja por causa de alguma integraÁ„o ou ferramenta utilizada que foi necess·rio mudar o padr„o de conexıes e chamadas entre elas.
+J√° no `Domain` e no `Infra` utilizamos normalmente os contratos (interfaces), pois sabemos que muitas das vezes precisamos modificar os servi√ßos, seja por causa de alguma integra√ß√£o ou ferramenta utilizada que foi necess√°rio mudar o padr√£o de conex√µes e chamadas entre elas.
 
-O mapeamento das interfaces s„o feito automaticamente com reflection para evitar o trabalho e possÌveis erros de esquecimento.
-Esse reflection se encontra numa extension no projeto `tools/WebApi` e È chamado no startup da aplicaÁ„o.
-Caso seja necess·rio passar alguma interface externa ou manualmente mesmo, esse metodo aceita um action ficando mais f·cil utilizar.
+O mapeamento das interfaces s√£o feito automaticamente com reflection para evitar o trabalho e poss√≠veis erros de esquecimento.
+Esse reflection se encontra numa extension no projeto `tools/WebApi` e √© chamado no startup da aplica√ß√£o.
+Caso seja necess√°rio passar alguma interface externa ou manualmente mesmo, esse metodo aceita um action ficando mais f√°cil utilizar.
 
-Exemplo da utilizaÁ„o se encontra no Statup (veja abaixo):
+Exemplo da utiliza√ß√£o se encontra no Statup (veja abaixo):
 ```
 	services.AddServiceMappingsFromAssemblies<BaseApplication, IBaseService, LogProcessInfraServices>(srv =>
     {
@@ -87,13 +87,13 @@ Exemplo da utilizaÁ„o se encontra no Statup (veja abaixo):
     });
 ```
 
-O retorno da API foi modificado atravÈs de um wrapper e filtro no startup da API.
-O padr„o de convers„o do json È `SnakeCaseNamingStrategy`.
-Para facilitar a visualizaÁ„o do json de resultado utilizei o [Json Viewer Online](http://jsonviewer.stack.hu/)
+O retorno da API foi modificado atrav√©s de um wrapper e filtro no startup da API.
+O padr√£o de convers√£o do json √© `SnakeCaseNamingStrategy`.
+Para facilitar a visualiza√ß√£o do json de resultado utilizei o [Json Viewer Online](http://jsonviewer.stack.hu/)
 
-### ConfiguraÁıes no AppSettings da API
+### Configura√ß√µes no AppSettings da API
 
-Existem algumas configuraÁıes no settings da API, para ajudar tanto no desenvolvimento quanto na manutenÁ„o, pois assim, para essas configuraÁıes n„o se faz necess·rio o build e subida de pacote (dlls).
+Existem algumas configura√ß√µes no settings da API, para ajudar tanto no desenvolvimento quanto na manuten√ß√£o, pois assim, para essas configura√ß√µes n√£o se faz necess√°rio o build e subida de pacote (dlls).
 
 ```
   "Game": {
@@ -105,26 +105,26 @@ Existem algumas configuraÁıes no settings da API, para ajudar tanto no desenvolv
   }
 ```
 
-Esse arquivo de settings È gerenciado no `Domain/Config.cs` e carregado na injeÁ„o de dependÍncias no startup para receber em qualquer lugar atr·ves do construtor.
+Esse arquivo de settings √© gerenciado no `Domain/Config.cs` e carregado na inje√ß√£o de depend√™ncias no startup para receber em qualquer lugar atr√°ves do construtor.
 
-DescriÁ„o das configuraÁıes
-1. `BasePath` - DiretÛrio onde se encontra a aplicaÁ„o
-2. `LogPath` - [Apartir do diretÛrio base] Esse esse diretÛrio informa onde fica o arquivo de log
+Descri√ß√£o das configura√ß√µes
+1. `BasePath` - Diret√≥rio onde se encontra a aplica√ß√£o
+2. `LogPath` - [Apartir do diret√≥rio base] Esse esse diret√≥rio informa onde fica o arquivo de log
 3. `LogName` - Nome do arquivo de log
-4. `World` - Id do world do log que n„o pode ser contabilizado como player
-5. `AllActions` - AÁıes do log que s„o utilizadas para o carregamento do log e parse para o DTO de Games
+4. `World` - Id do world do log que n√£o pode ser contabilizado como player
+5. `AllActions` - A√ß√µes do log que s√£o utilizadas para o carregamento do log e parse para o DTO de Games
 
-Se a chave `BasePath` n„o for configurada, a aplicaÁ„o pega o diretÛrio corrente na vari·vel de ambiente.
-APENAS para facilitar o teste da aplicaÁ„o, incluÌ o log dentro da pasta `assets` no diretÛrio da API e n„o preenchi a chave `BasePath`.
-Com isso basta executar a aplicaÁ„o para comeÁar os testes.
+Se a chave `BasePath` n√£o for configurada, a aplica√ß√£o pega o diret√≥rio corrente na vari√°vel de ambiente.
+APENAS para facilitar o teste da aplica√ß√£o, inclu√≠ o log dentro da pasta `assets` no diret√≥rio da API e n√£o preenchi a chave `BasePath`.
+Com isso basta executar a aplica√ß√£o para come√ßar os testes.
 
 ## Gerar imagem em Docker
 
-Criei o `Dockerfile` para facilitar a criaÁ„o da imagem para subida em container docker
+Criei o `Dockerfile` para facilitar a cria√ß√£o da imagem para subida em container docker
 
 ## Subir numa maquina virtual
 
-Criei o arquivo Vagrantfile para facilitar a subida da maquina virtual, segue o passo a passo que È executado.
+Criei o arquivo Vagrantfile para facilitar a subida da maquina virtual, segue o passo a passo que √© executado.
 
 ### Prerequisitos
 
@@ -133,7 +133,7 @@ Criei o arquivo Vagrantfile para facilitar a subida da maquina virtual, segue o 
 
 ### Executando o Vagrant
 
-Antes de mais nada È preciso instalar o plugin abaixo pois o Vagrant vai precisar compartilhar pastas com a maquina local para ler os arquivos do projeto
+Antes de mais nada √© preciso instalar o plugin abaixo pois o Vagrant vai precisar compartilhar pastas com a maquina local para ler os arquivos do projeto
 
 `vagrant plugin install vagrant-vbguest`
 
@@ -141,20 +141,20 @@ Subindo a maquina virtual:
 
 `vagrant up`
 
-Segue o passo a passo dessa execuÁ„o:
+Segue o passo a passo dessa execu√ß√£o:
 
 - Subir a maquina virutal com o `Ubuntu 19` rodando
 - Instalar o `Docker`
 - Gerar a imagem do docker apontando para o arquivo `Dockerfile`
 - Gerar um container expondo a porta `80`
 
-## ExecuÁ„o dos Endpoints
+## Execu√ß√£o dos Endpoints
 
 ```
 GET /api/v1/games/task-one
 ```
 
-Nesse endpoint È retornado todos os registros j· excluso o `world` dos kills e players, mas mantendo a soma no total e no agrupamento de motivos de mortes, se por armas ou outro - `kills_means`
+Nesse endpoint √© retornado todos os registros j√° excluso o `world` dos kills e players, mas mantendo a soma no total e no agrupamento de motivos de mortes, se por armas ou outro - `kills_means`
 
 Exemplo de retorno:
 
@@ -227,7 +227,7 @@ Exemplo de retorno:
 GET /api/v1/games/all
 ```
 
-Nesse endpoint È retornado todos os registros encontrados no log referente as partidas, jogos e mortes incluindo as mortes causadas pelo `world`.
+Nesse endpoint √© retornado todos os registros encontrados no log referente as partidas, jogos e mortes incluindo as mortes causadas pelo `world`.
 
 Exemplo de retorno:
 
@@ -343,11 +343,11 @@ Exemplo de retorno:
 GET /api/v1/games/{codigo-da-partida:inteiro}
 ```
 
-Nesse endpoint È retornado apenas a partida informada, j· excluso o `world` dos kills e players, mas mantendo a soma no total e no agrupamento de motivos de mortes, se por armas ou outro - `kills_means`
-O retorno È o mesmo padr„o do json do entpoint `/api/v1/games/all` informado acima.
+Nesse endpoint √© retornado apenas a partida informada, j√° excluso o `world` dos kills e players, mas mantendo a soma no total e no agrupamento de motivos de mortes, se por armas ou outro - `kills_means`
+O retorno √© o mesmo padr√£o do json do entpoint `/api/v1/games/all` informado acima.
 
 
-## ExecuÁ„o dos testes
+## Execu√ß√£o dos testes
 
 1. Abra o Visual Studio
 2. Menu Test > Run > All Tests
@@ -355,9 +355,9 @@ O retorno È o mesmo padr„o do json do entpoint `/api/v1/games/all` informado aci
 Pelo bash, terminal ou cmd
 `dotnet test`
 
-## PublicaÁ„o
+## Publica√ß√£o
 
-N„o foi publicado
+N√£o foi publicado
 
 ## Autores
 
@@ -365,7 +365,7 @@ N„o foi publicado
 
 ## License
 
-Software feito apenas para fins de estudo
+[MIT](https://gist.github.com/robsonpedroso/98dc906d5896711f07a9cffbcc2776ea)
 
 ## Biblioteca
 
